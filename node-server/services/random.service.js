@@ -3,7 +3,7 @@
  *
  * @returns {Number}
  */
-const between = (min, max) => { Math.random() * (max - min) + min; };
+const between = (min, max) => Math.random() * (max - min) + min;
 
 /**
  * Sets the time out with given intervals.
