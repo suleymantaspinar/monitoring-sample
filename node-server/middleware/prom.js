@@ -50,7 +50,6 @@ module.exports.requestCounters = function (req, res, next) {
  */
 module.exports.responseCounters = ResponseTime((req, res, time) => {
   if (req.url != '/metrics') {
-    console.log('REQ:', req);
     responses.labels(req.method, req.route.path, res.statusCode).observe(time);
     httpRequestDurationMs.labels(req.method, req.route.path, res.statusCode).observe(time);
   }
