@@ -22,7 +22,10 @@ docker-compose up -d --build node-server
 
 Generate some requests to see the logs
 ```
-http://localhost:83
+curl --location --request GET 'localhost:83/random'
+curl --location --request POST 'localhost:83/random'
+curl --location --request PUT 'localhost:83/random'
+curl --location --request DELETE 'localhost:83/random'
 ```
 
 Open grafana
