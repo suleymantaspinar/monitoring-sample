@@ -19,21 +19,32 @@ Start the server.
 ```
 docker-compose up -d --build node-server
 ```
+
+Generate some requests to see the logs
+```
+http://localhost:83
+```
+
+Open grafana
+```
+http://localhost:3000
+```
+
 ## Prometheus Metrics
-**Counter**:
+Counter:
 ```
 name: 'numOfRequests',
 help: 'Number of requests made',
 labelNames: ['method', 'path', 'status']
 ```
-**Histogram**:
+Histogram:
 ```
 name: 'http_request_duration_ms',
 help: 'Duration of HTTP requests in ms',
 labelNames: ['method', 'path', 'status']
 buckets: [0.10, 5, 15, 50, 100, 500, 1000, 2000, 3000]
 ```
-**Summary**:
+Summary:
 ```
 name: 'http_response_summary_ms',
 help: 'Response times in milliseconds',
