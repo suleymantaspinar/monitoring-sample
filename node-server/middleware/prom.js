@@ -49,7 +49,7 @@ module.exports.requestCounters = function (req, res, next) {
  * Currently it updates the responses summary
  */
 module.exports.responseCounters = ResponseTime((req, res, time) => {
-  if (req.url != '/metrics') {
+  if (req.url != '/metrics' && req.route) {
     responses.labels(req.method, req.route.path, res.statusCode).observe(time);
     httpRequestDurationMs.labels(req.method, req.route.path, res.statusCode).observe(time);
   }
