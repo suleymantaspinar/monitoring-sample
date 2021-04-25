@@ -9,15 +9,9 @@ This is a sample node.js application for monitoring REST endpoints. Each incomin
 **random-response**: Middleware for measuring the request times.  
 
 ## Installation
-Start prometheus, grafana,, grafana-dashboards.
+Start prometheus, grafana, grafana-dashboards, and, server.
 ```
-docker-compose up -d --build prometheus
-docker-compose up -d --build grafana
-docker-compose up -d --build grafana-dashboards
-```
-Start the server.  
-```
-docker-compose up -d --build node-server
+docker-compose up -d
 ```
 
 Generate some requests to see the logs
