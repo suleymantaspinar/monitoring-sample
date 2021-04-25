@@ -13,6 +13,9 @@ module.exports.numOfRequests = numOfRequests = new Counter({
   labelNames: ['method', 'path', 'status'],
 });
 
+/**
+ * A Prometheus histogram that observes time duration of each requests.
+ */
 module.exports.httpRequestDurationMs = httpRequestDurationMs = new Histogram({
   name: 'http_request_duration_ms',
   help: 'Duration of HTTP requests in ms',
