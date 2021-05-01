@@ -9,7 +9,7 @@ const timestamp = () => Math.floor(Date.now() / 1000);
 router.get('/', (req, res, next) => {
   RandomService.wait()
     .then((time) => {
-      LogService.logEmitter.emit('log', `PUT, ${time}, ${timestamp()}\n`);
+      LogService.logEmitter.emit('log', `GET, ${time}, ${timestamp()}\n`);
     })
     .then((resolve) => {
       res.status(200).send('OK');
