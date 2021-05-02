@@ -6,20 +6,36 @@ This is a sample node.js application for monitoring REST endpoints. Each incomin
 
 ## Libraries
 **prom-client**: Prometheus node.js driver.  
-**random-response**: Middleware for measuring the request times.  
+**random-response**: Middleware for measuring the request times.   
+**cassandra-driver**: Cassandra node.js driver.
 
 ## Installation
-Start prometheus, grafana, grafana-dashboards, and, server.
+Start prometheus, grafana, grafana-dashboards.
 ```
 docker-compose up -d
 ```
 
+Start cassandra with initial schema
+```
+docker run --name some-cassandra -v $(pwd)/cassandra/schema.cql:/schema.cql -d -p 9042:9042 cassandra
+```
+
+Init the keyspace and create log table
+```
+docker exec some-cassandra cqlsh -f /schema.cql 
+```
+
+Start the server
+```
+cd node-server && cp .env.example .env && npm i && nodemon
+```
+
 Generate some requests to see the logs
 ```
-curl --location --request GET 'localhost:83/random'
-curl --location --request POST 'localhost:83/random'
-curl --location --request PUT 'localhost:83/random'
-curl --location --request DELETE 'localhost:83/random'
+curl --location --request GET 'localhost:5000/random'
+curl --location --request POST 'localhost:5000/random'
+curl --location --request PUT 'localhost:5000/random'
+curl --location --request DELETE 'localhost:5000/random'
 ```
 
 Open grafana

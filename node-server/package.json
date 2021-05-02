@@ -10,11 +10,13 @@
   "author": "Suleyman Taspinar",
   "license": "ISC",
   "dependencies": {
+    "cassandra-driver": "^4.6.2",
     "express": "^4.17.1",
     "prom-client": "^13.1.0",
     "response-time": "^2.3.2"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "eslint": "^7.25.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"

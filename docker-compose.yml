@@ -1,14 +1,5 @@
 version: "3"
 services:
-  node-server:
-    build:
-      context: ./node-server
-    container_name: node-server
-    image: node-server
-    ports:
-      - "83:5000"
-    depends_on: 
-      - grafana-dashboards
   prometheus:
     container_name: prometheus-svc
     image: prom/prometheus

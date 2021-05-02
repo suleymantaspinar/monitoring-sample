@@ -129,7 +129,7 @@
       },
       {
         "aliasColors": {
-          "{instance=\"node-server:5000\",job=\"prometheus\",method=\"GET\",path=\"/\",status=\"200\"}": "#eab839"
+          "{instance=\"host.docker.internal:5000\",job=\"prometheus\",method=\"GET\",path=\"/\",status=\"200\"}": "#eab839"
         },
         "bars": false,
         "dashLength": 10,
