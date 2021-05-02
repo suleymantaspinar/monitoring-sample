@@ -1,9 +1,11 @@
+require('dotenv').config();
 const cassandra = require('cassandra-driver');
+const { CONTACT_POINT, LOCAL_DATA_CENTER, KEYSPACE } = process.env
 
 const client = new cassandra.Client({ 
-  contactPoints: ['127.0.0.1'],
-  localDataCenter: 'datacenter1',
-  keyspace: 'random_sample'
+  contactPoints: [CONTACT_POINT],
+  localDataCenter: LOCAL_DATA_CENTER,
+  keyspace: KEYSPACE
 
 });
 

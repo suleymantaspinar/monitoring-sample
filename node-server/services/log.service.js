@@ -1,6 +1,6 @@
 const EventEmitter = require('events');
 const fs = require('fs');
-const { createLog } = require('../db/Log')
+const { createLog } = require('../db/log')
 const logEmitter = new EventEmitter();
 const writeStream = fs.createWriteStream('./log-output');
 
