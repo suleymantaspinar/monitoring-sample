@@ -4,12 +4,16 @@ const router = express.Router();
 const RandomService = require('../services/random.service');
 const LogService = require('../services/log.service');
 
-const timestamp = () => Math.floor(Date.now() / 1000);
+const timestamp = () => Math.floor(Date.now());
 
 router.get('/', (req, res, next) => {
   RandomService.wait()
     .then((time) => {
-      LogService.logEmitter.emit('log', `GET, ${time}, ${timestamp()}\n`);
+      LogService.logEmitter.emit('log', {
+        type: 'GET',
+        time_spent: time,
+        timestamp: timestamp()
+      });
     })
     .then((resolve) => {
       res.status(200).send('OK');
@@ -23,7 +27,11 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   RandomService.wait()
     .then((time) => {
-      LogService.logEmitter.emit('log', `POST, ${time}, ${timestamp()}\n`);
+      LogService.logEmitter.emit('log', {
+        type: 'POST',
+        time_spent: time,
+        timestamp: timestamp()
+      });
     })
     .then((resolve) => {
       res.status(200).send('OK');
@@ -37,7 +45,11 @@ router.post('/', (req, res, next) => {
 router.put('/', (req, res, next) => {
   RandomService.wait()
     .then((time) => {
-      LogService.logEmitter.emit('log', `PUT, ${time}, ${timestamp()}\n`);
+      LogService.logEmitter.emit('log', {
+        type: 'PUT',
+        time_spent: time,
+        timestamp: timestamp()
+      });
     })
     .then((resolve) => {
       res.status(200).send('OK');
@@ -51,7 +63,11 @@ router.put('/', (req, res, next) => {
 router.delete('/', (req, res, next) => {
   RandomService.wait()
     .then((time) => {
-      LogService.logEmitter.emit('log', `DELETE, ${time}, ${timestamp()}\n`);
+      LogService.logEmitter.emit('log', {
+        type: 'DELETE',
+        time_spent: time,
+        timestamp: timestamp()
+      });
     })
     .then((resolve) => {
       res.status(200).send('OK');

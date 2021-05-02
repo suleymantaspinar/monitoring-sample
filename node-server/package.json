@@ -10,6 +10,7 @@
   "author": "Suleyman Taspinar",
   "license": "ISC",
   "dependencies": {
+    "cassandra-driver": "^4.6.2",
     "express": "^4.17.1",
     "prom-client": "^13.1.0",
     "response-time": "^2.3.2"
